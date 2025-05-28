@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Telegram WebApp Auth</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+<h1>Авторизация через Telegram WebApp</h1>
+
+<script>
+  window.addEventListener('load', () => {
+    const initData = Telegram.WebApp.initData;
+
+    if (!initData || initData.length === 0) {
+      alert("Нет данных от Telegram WebApp");
+      return;
+    }
+
+    fetch('/auth', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: new URLSearchParams({ initData })
+    })
+    .then(response => {
+      if (!response.ok) throw new Error("Ошибка авторизации");
+      window.location.href = 'https://google.com';
+    })
+    .catch(error => {
+      console.error('Ошибка при авторизации:', error);
+      alert("Ошибка при авторизации");
+    });
+  });
+</script>
+</body>
+</html>
