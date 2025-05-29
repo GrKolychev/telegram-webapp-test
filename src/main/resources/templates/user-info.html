@@ -3,9 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Добро пожаловать</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <!-- this is where we refer the css file from src/main/resources/static/main.css -->
+  <link th:href="@{/main.css}" rel="stylesheet" />
 </head>
 <body>
-<h2>Привет, <span th:text="${user.firstName}">пользователь</span>!</h2>
+<h2>
+  Привет, <span th:text="${user.firstName}">пользователь</span>!
+</h2>
 <p>Telegram ID: <span th:text="${user.id}"></span></p>
 <p>Username: <span th:text="${user.userName}">неизвестен</span></p>
 </body>

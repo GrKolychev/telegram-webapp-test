@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@source "../../templates";
+@plugin "@tailwindcss/forms";
+
+h2 {
+  @apply text-5xl mx-16 my-16 underline
+}
+
+p {
+  @apply text-lg leading-relaxed mx-10 my-6 text-gray-700;
+}
