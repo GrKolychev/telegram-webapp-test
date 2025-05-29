@@ -47,6 +47,11 @@
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
 		</dependency>
@@ -106,6 +111,35 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.maciejwalkowiak.paseq</groupId>
+				<artifactId>paseq-maven-plugin</artifactId>
+				<version>0.1.1</version>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<task>
+									<exec>
+										<directory>src/main/frontend</directory>
+										<command>npm install</command>
+									</exec>
+								</task>
+								<task>
+									<exec>
+										<directory>src/main/frontend</directory>
+										<command>npm run build</command>
+									</exec>
+								</task>
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
