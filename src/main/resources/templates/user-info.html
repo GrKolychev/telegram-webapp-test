@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Добро пожаловать</title>
+</head>
+<body>
+<h2>Привет, <span th:text="${user.firstName}">пользователь</span>!</h2>
+<p>Telegram ID: <span th:text="${user.id}"></span></p>
+<p>Username: <span th:text="${user.userName}">неизвестен</span></p>
+</body>
+</html>
